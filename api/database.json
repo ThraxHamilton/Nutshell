@@ -1,5 +1,5 @@
 {
-  "user": [
+  "users": [
     {
       "id": "1",
       "userName": "MikeG",
@@ -19,6 +19,44 @@
     },
     {
       "id": "CkQxKgv"
+    },
+    {
+      "id": "EkxJvlb"
+    },
+    {
+      "id": "q4xpkK4"
+    },
+    {
+      "id": "Gfkq_5B"
+    },
+    {
+      "id": "9nBWSgP"
+    },
+    {
+      "email": "mike@mike.com",
+      "id": "LG7CCjb"
+    },
+    {
+      "email": "mike@mike.com",
+      "id": "XVXwjyO"
+    },
+    {
+      "email": "mike@email",
+      "username": "mike",
+      "password": "124",
+      "id": "z0cGELW"
+    },
+    {
+      "email": "test@email.com",
+      "username": "Test1",
+      "password": "1234",
+      "id": "~IFF9TH"
+    },
+    {
+      "email": "john@wood.com",
+      "username": "john",
+      "password": "123",
+      "id": "AbAjGOk"
     }
   ],
   "friends": [
