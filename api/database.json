@@ -1,0 +1,67 @@
+{
+    "user": [
+        {
+            "id":"" ,
+            "userName":"" ,
+            "userEmail":""
+        }
+    ]
+},
+
+{
+    "friends": [
+        {
+            "id": "",
+            "userId": "",
+            "friendId": ,
+        }
+    ]
+},
+
+{
+    "tasks": [
+        {
+            "id": "",
+            "taskId": "",
+            "taskName": "",
+            "dueBy": ""
+        }
+    ]
+},
+
+{
+    "news": [
+        {
+            "id": "",
+            "newsId": "",
+            "title": "",
+            "date": "",
+            "author": ""
+        }
+    ]
+},
+
+{
+    "events": [
+        {
+            "id": "",
+            "eventId": "",
+            "eventName": "",
+            "date": "",
+            "time": "",
+            "location": ""
+        }
+    ]
+},
+
+{
+    "messages": [
+        {
+            "id": "",
+            "messageId": "",
+            "chat": "",
+            "date": "",
+            "time": "",
+        }
+    ]
+}
