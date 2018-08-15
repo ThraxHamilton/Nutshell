@@ -69,6 +69,30 @@
       "username": "mike1",
       "password": "12",
       "id": "cmnFe4o"
+    },
+    {
+      "email": "mmcclenton16@gmail.com",
+      "username": "mike",
+      "password": "1234",
+      "id": "8RDkE~x"
+    },
+    {
+      "email": "mmcclenton16@gmail.com",
+      "username": "mike",
+      "password": "123",
+      "id": "GIHWjUK"
+    },
+    {
+      "email": "mmcclenton16@gmail.com",
+      "username": "test1",
+      "password": "test",
+      "id": "W3ogJ9i"
+    },
+    {
+      "email": "mmcclenton16@gmail.com",
+      "username": "mike",
+      "password": "2w34",
+      "id": "h6DLL~2"
     }
   ],
   "friends": [
