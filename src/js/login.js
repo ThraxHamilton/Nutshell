@@ -11,11 +11,11 @@ const FormManager = Object.create(null, {
             return `
         <fieldset>
             <label for="username">Username:</label>
-            <input required type="text" id="entryTitle">
+            <input required type="text" id="username">
         </fieldset>
         <fieldset>
             <label for="email">Email</label>
-            <textarea id="entryContent"></textarea>
+            <textarea id="email"></textarea>
             </fieldset>
         <button id="submit">Submit</button>`
         }
