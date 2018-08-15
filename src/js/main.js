@@ -11,5 +11,10 @@ document.querySelector("#register").addEventListener("click",(event) => {
     // Save newUser to API database
     dataManager.saveUserInfo(newUser).then(() => {
     })
-})
+}),
+// Function to verify unique email address
+function verifyUser () {
+    if (document.querySelector("#email").value.text === newUser() )
+    alert("Please try again.")
+}
 

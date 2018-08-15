@@ -57,6 +57,18 @@
       "username": "john",
       "password": "123",
       "id": "AbAjGOk"
+    },
+    {
+      "email": "mmcclenton16@gmail.com",
+      "username": "mike",
+      "password": "1234",
+      "id": "5PCud8F"
+    },
+    {
+      "email": "mmcclenton16@gmail.com",
+      "username": "mike1",
+      "password": "12",
+      "id": "cmnFe4o"
     }
   ],
   "friends": [

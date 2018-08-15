@@ -1,3 +1,4 @@
+// Create DataManager to save user info into API
 let dataManager = Object.create(null, {
     saveUserInfo: {
         value: (entry) => {
