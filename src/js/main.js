@@ -2,11 +2,12 @@ const dataManager = require("./dataManager")
 const login = require("./login.js")
 console.log("login", login)
 // Create event listener for login/register button
-document.querySelector("#register").addEventListener("click", (event) => {
+// document.querySelector("#register").addEventListener("click", (event) => {
     // Event listener to create new form
-    document.querySelector("#register-form").innerHTML = login.createNewForm()
-    document.querySelector("#submit").addEventListener("click", addNewUser)
-})
+    document.querySelector("#container").innerHTML = login.createNewForm()
+    document.querySelector("#register").addEventListener("click", addNewUser)
+// })
+document.querySelector("#login").addEventListener("click", loginSave)
 // Event listener to submit and save to API
 function addNewUser() {
     const newUser = {
@@ -38,3 +39,24 @@ function verifyUser(newUser) {
             }
         })
 }
+// Save to session storage
+    function loginSave() {
+        const loginUser = {
+            email: document.querySelector("#email").value,
+            username: document.querySelector("#username").value,
+        }
+        dataManager.getUserInfo().then(users => {
+            const userObject = users.find((user) => {
+                return loginUser.username === user.username && loginUser.email === user.email
+            })
+            console.log(userObject)
+            if (!userObject){
+                alert('Incorrect Email or Username')
+            }
+            else {
+                sessionStorage.setItem('activeUser', JSON.stringify(userObject))
+            }
+        })
+    }
+
+

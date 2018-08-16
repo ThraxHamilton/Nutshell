@@ -17,7 +17,8 @@ const FormManager = Object.create(null, {
             <label for="email">Email</label>
             <textarea id="email"></textarea>
             </fieldset>
-        <button id="submit">Submit</button>`
+        <button id="register">Register</button>
+        <button id='login'>Login</button>`
         }
     }
 })
