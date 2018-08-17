@@ -21,7 +21,7 @@ let dataManager = Object.create(null, {
         }
 
     },
-    // Save chats/messages to API
+    // Save/get chats/messages to API
     saveChatInfo: {
         value: (entry) => {
             return fetch("http://localhost:8088/messages", {
@@ -43,6 +43,35 @@ let dataManager = Object.create(null, {
         }
 
     },
+    // Save/get tasks to API
+    saveTaskInfo: {
+        value: (entry) => {
+            return fetch("http://localhost:8088/tasks", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(entry)
+            })
+            console.log(saveUserInfo)
+            .then(response => response.json())
+        }
+    },
+    getTaskInfo: {
+        value: (entry) => {
+            return fetch("http://localhost:8088/tasks", {
+            })
+                .then(response => response.json())
+        }
+
+    },
+
+
+
+
+
+
+
 
 
 
