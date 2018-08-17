@@ -7,7 +7,7 @@ function taskEntries() {
     outputElement.innerHTML = "";
     dataManager.getTaskInfo().then(result => {
         result.forEach(newTask => {
-            let taskComponent= chatEntry(newTask.message, newTask.date, newTask.id);
+            let taskComponent= taskEntry(newTask.task, newTask.details, newTask.dueBy);
             writeMessageToDOM(taskComponent);
         });
     })
@@ -16,4 +16,4 @@ function writeMessageToDOM(task) {
     outputElement.innerHTML += task
 }
 
-module.exports = listEntries;
+module.exports = taskEntries;

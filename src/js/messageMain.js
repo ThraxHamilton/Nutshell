@@ -1,5 +1,6 @@
 const dataManager = require ('./dataManager')
 const chatList = require ('./chatList')
+
 function addMessageEListener(){
     document.querySelector("#sendMessage").addEventListener("click", () => {
     const newMessage = {

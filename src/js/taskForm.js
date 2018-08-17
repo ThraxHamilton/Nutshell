@@ -20,8 +20,8 @@ const taskForm = Object.create(null, {
                 <input required type="date" id="taskDate">
             </fieldset>
             <fieldset>
-                <label for="entryContent">Details: </label>
-                <textarea id="taskContent" id='taskDetail'></textarea>
+                <label for="taskDetails">Details: </label>
+                <textarea id="taskDetails" id='taskDetail'></textarea>
                 </fieldset>
             <button id="saveTaskButton">Add Job</button>`
         }

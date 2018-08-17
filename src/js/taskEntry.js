@@ -1,7 +1,7 @@
-function createTaskEntry(task, dueBy) {
+function createTaskEntry(task, details, dueBy) {
 return `
             <p>${task}</p>
-            <p>${dueBy}</p>
-            <button id="deleteButton--${id}">Delete</button>`;
+            <p>${details}</p>
+            <p>${dueBy}</p>`;
 }
 module.exports = createTaskEntry

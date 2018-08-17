@@ -5,6 +5,7 @@ const newChat = require("./chatEntry.js")
 const chatList = require('./chatList')
 const tasks = require('./taskForm')
 const addMessageEListener = require('./messageMain')
+const addTaskEListenr = require('./taskMain')
 
 console.log("login", login)
 // Create event listener for login/register button
@@ -12,7 +13,6 @@ console.log("login", login)
 document.querySelector("#container").innerHTML = login.createNewForm()
 document.querySelector("#register").addEventListener("click", addNewUser)
 document.querySelector("#login").addEventListener("click", loginSave)
-document.querySelector('#saveTaskButton').addEventListener('click',taskEntry)
 // Event listener to submit and save to API
 function addNewUser() {
     const newUser = {
@@ -74,6 +74,7 @@ function loginSave() {
         console.log(newChat)
         //document.querySelector('#newChat').innerHTML = newChat()
         addMessageEListener()
+        addTaskEListenr()
     })
 }
 
