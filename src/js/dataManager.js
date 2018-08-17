@@ -21,6 +21,32 @@ let dataManager = Object.create(null, {
         }
 
     },
+    // Save chats/messages to API
+    saveChatInfo: {
+        value: (entry) => {
+            return fetch("http://localhost:8088/messages", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(entry)
+            })
+            console.log(saveUserInfo)
+            .then(response => response.json())
+        }
+    },
+    getChatInfo: {
+        value: (entry) => {
+            return fetch("http://localhost:8088/messages", {
+            })
+                .then(response => response.json())
+        }
+
+    },
+
+
+
+
     // Save friends to API
     saveFriendInfo: {
         value: (entry) => {

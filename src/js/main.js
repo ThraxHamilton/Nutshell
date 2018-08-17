@@ -1,11 +1,14 @@
 const dataManager = require("./dataManager")
 const login = require("./login.js")
+const chatForm = require('./chatForm')
+const newChat = require("./chatEntry.js")
+const chatList = require('./chatList')
+
 console.log("login", login)
 // Create event listener for login/register button
-// document.querySelector("#register").addEventListener("click", (event) => {
-    // Event listener to create new form
-    document.querySelector("#container").innerHTML = login.createNewForm()
-    document.querySelector("#register").addEventListener("click", addNewUser)
+// Event listener to create new form
+document.querySelector("#container").innerHTML = login.createNewForm()
+document.querySelector("#register").addEventListener("click", addNewUser)
 // })
 document.querySelector("#login").addEventListener("click", loginSave)
 // Event listener to submit and save to API
@@ -27,6 +30,7 @@ function verifyUser(newUser) {
             const email = document.querySelector("#email").value
             // Filter function with 2 conditions for email and user
             const userFilter = users.filter((user) => {
+                // .filter creates a new array
                 return username === user.username || email === user.email
             })
             // "if" statement to check length of array. 0=for new user; anything else "alert()"
@@ -39,24 +43,49 @@ function verifyUser(newUser) {
             }
         })
 }
-// Save to session storage
-    function loginSave() {
-        const loginUser = {
-            email: document.querySelector("#email").value,
-            username: document.querySelector("#username").value,
-        }
-        dataManager.getUserInfo().then(users => {
-            const userObject = users.find((user) => {
-                return loginUser.username === user.username && loginUser.email === user.email
-            })
-            console.log(userObject)
-            if (!userObject){
-                alert('Incorrect Email or Username')
-            }
-            else {
-                sessionStorage.setItem('activeUser', JSON.stringify(userObject))
-            }
-        })
+// ^^^Save to session storage.^^^ ^^^^^^^^ Pretty similar to ^^^^^^^^
+function loginSave() {
+    const loginUser = {
+        email: document.querySelector("#email").value,
+        username: document.querySelector("#username").value,
     }
+    dataManager.getUserInfo().then(users => {
+        const userObject = users.find((user) => {
+            return loginUser.username === user.username && loginUser.email === user.email
+        })
+        console.log(userObject)
+        if (!userObject) {
+            alert('Incorrect Email or Username')
+        }
+        else {
+            sessionStorage.setItem('activeUser', JSON.stringify(userObject))
+        }
+        // Hide login after..login.
+        document.querySelector('#container').style.display = 'none';
+        // Create chat timeline after hiding login form.
+        document.querySelector("#chatWindow").innerHTML = chatForm.createNewForm()
+        newChat()
+        // New message input
+        console.log(newChat)
+        //document.querySelector('#newChat').innerHTML = newChat()
+        document.querySelector("#sendMessage").addEventListener("click", () => {
+            const newMessage = {
+                message: document.querySelector("#message").value,
+                date: Date.now()
+            }
+            dataManager.saveChatInfo(newMessage).then(() => {
+                console.log(newMessage)
+                // newChat.clearForm()
+                chatList()
+            })
+            
+        })
+    })
+}
+
+
+
+
+
 
 
