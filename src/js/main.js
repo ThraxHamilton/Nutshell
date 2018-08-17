@@ -1,7 +1,8 @@
 const dataManager = require("./dataManager")
 const login = require("./login.js")
 const chatForm = require('./chatForm')
-// const newChat = require("./chatEntry.js")
+const newChat = require("./chatEntry.js")
+const chatList = require('./chatList')
 
 console.log("login", login)
 // Create event listener for login/register button
@@ -58,12 +59,12 @@ function loginSave() {
         }
         else {
             sessionStorage.setItem('activeUser', JSON.stringify(userObject))
-
         }
         // Hide login after..login.
         document.querySelector('#container').style.display = 'none';
         // Create chat timeline after hiding login form.
         document.querySelector("#chatWindow").innerHTML = chatForm.createNewForm()
+        newChat()
         // New message input
         console.log(newChat)
         //document.querySelector('#newChat').innerHTML = newChat()
@@ -73,11 +74,16 @@ function loginSave() {
                 date: Date.now()
             }
             dataManager.saveChatInfo(newMessage).then(() => {
-                FormManager.clearForm()
+                console.log(newMessage)
+                // newChat.clearForm()
+                chatList()
             })
+            
         })
     })
 }
+
+
 
 
 

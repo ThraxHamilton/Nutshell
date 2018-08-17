@@ -1,6 +1,6 @@
-function createChatEntry(){
-    return `<h1>${title}</h1>
-            <p>${content}</p>
+function createChatEntry(message, date, id){
+    return `
+            <p>${message}</p>
             <p>${date}</p>
             <button id="deleteButton--${id}">Delete</button>`;
 }
