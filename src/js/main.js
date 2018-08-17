@@ -3,13 +3,15 @@ const login = require("./login.js")
 const chatForm = require('./chatForm')
 const newChat = require("./chatEntry.js")
 const chatList = require('./chatList')
+const tasks = require('./taskForm')
+const addMessageEListener = require('./messageMain')
+const addTaskEListenr = require('./taskMain')
 
 console.log("login", login)
 // Create event listener for login/register button
 // Event listener to create new form
 document.querySelector("#container").innerHTML = login.createNewForm()
 document.querySelector("#register").addEventListener("click", addNewUser)
-// })
 document.querySelector("#login").addEventListener("click", loginSave)
 // Event listener to submit and save to API
 function addNewUser() {
@@ -25,23 +27,23 @@ function addNewUser() {
 function verifyUser(newUser) {
     // Get all users using fetch()
     dataManager.getUserInfo()
-        .then((users) => {
-            const username = document.querySelector("#username").value
-            const email = document.querySelector("#email").value
-            // Filter function with 2 conditions for email and user
-            const userFilter = users.filter((user) => {
-                // .filter creates a new array
-                return username === user.username || email === user.email
-            })
-            // "if" statement to check length of array. 0=for new user; anything else "alert()"
-            if (userFilter.length === 0) {
-                // post user to API
-                dataManager.saveUserInfo(newUser)
-            }
-            else {
-                alert("Please choose another login")
-            }
+    .then((users) => {
+        const username = document.querySelector("#username").value
+        const email = document.querySelector("#email").value
+        // Filter function with 2 conditions for email and user
+        const userFilter = users.filter((user) => {
+            // .filter creates a new array
+            return username === user.username || email === user.email
         })
+        // "if" statement to check length of array. 0=for new user; anything else "alert()"
+        if (userFilter.length === 0) {
+            // post user to API
+            dataManager.saveUserInfo(newUser)
+        }
+        else {
+            alert("Please choose another login")
+        }
+    })
 }
 // ^^^Save to session storage.^^^ ^^^^^^^^ Pretty similar to ^^^^^^^^
 function loginSave() {
@@ -64,22 +66,15 @@ function loginSave() {
         document.querySelector('#container').style.display = 'none';
         // Create chat timeline after hiding login form.
         document.querySelector("#chatWindow").innerHTML = chatForm.createNewForm()
+        // Add task entry along with message enrty.
+        document.querySelector("#taskForm").innerHTML = tasks.createNewForm()
+        // New chat function.
         newChat()
         // New message input
         console.log(newChat)
         //document.querySelector('#newChat').innerHTML = newChat()
-        document.querySelector("#sendMessage").addEventListener("click", () => {
-            const newMessage = {
-                message: document.querySelector("#message").value,
-                date: Date.now()
-            }
-            dataManager.saveChatInfo(newMessage).then(() => {
-                console.log(newMessage)
-                // newChat.clearForm()
-                chatList()
-            })
-            
-        })
+        addMessageEListener()
+        addTaskEListenr()
     })
 }
 
