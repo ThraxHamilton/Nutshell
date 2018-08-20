@@ -11,7 +11,7 @@ function addTaskEListener(){
     }
     dataManager.saveTaskInfo(newTask).then(() => {
         console.log(newTask)
-        // newChat.clearForm()
+        // newTask.clearForm()
         taskList()
     })
     

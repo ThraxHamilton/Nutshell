@@ -6,6 +6,7 @@ const chatList = require('./chatList')
 const tasks = require('./taskForm')
 const addMessageEListener = require('./messageMain')
 const addTaskEListenr = require('./taskMain')
+const addEventEListener = require('./eventMain')
 
 console.log("login", login)
 // Create event listener for login/register button
@@ -75,6 +76,7 @@ function loginSave() {
         //document.querySelector('#newChat').innerHTML = newChat()
         addMessageEListener()
         addTaskEListenr()
+        addEventEListener()
     })
 }
 
